@@ -54,14 +54,13 @@ class handDetector():
 def main():
     pTime = 0
     cTime = 0
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture(1)
     detector = handDetector()
     while True:
         success, img = cap.read()
-        img = detector.findHands(img)#if you give (draw=False) in the bracket handtracking will be default
+        img = detector.findHands(img)
         lmList = detector.findPosition(img)
         if len(lmList) != 0:
-            #landmarks of tip of the thumb
             print(lmList[4])
 
         cTime = time.time()
